@@ -1,16 +1,16 @@
-export function loginservice(username,password){
+export function loginService(username,password){
     if(!username|| !password
         || typeof username != 'string'
         || typeof password != 'string'
     )
-    if(username != 'admin'){
+    if(username !== 'admin'){
         return{
             error: ' credenciales invalidas.',
         
     };
 }
 
-if(password != '1234'){
+if(password !== '1234'){
     return{
         error:'credenciales invalidas',
     };
