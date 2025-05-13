@@ -4,10 +4,12 @@ export async function loginService(credentials){
         ||credentials.password
         || typeof credentials.username != 'string'
         || typeof credentials.password != 'string'
-    )
+    ){
+        return
+    }
         throw new invalidargumentexceptions();
         
-    }
+    
     if(username !== 'admin'){
         return{
             error: ' credenciales invalidas.',
@@ -24,3 +26,4 @@ if(password !== '1234'){
 return{
     token:'token de acceso'
 };
+}
