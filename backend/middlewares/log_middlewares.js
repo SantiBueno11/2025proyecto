@@ -1,5 +1,5 @@
 export function logmiddleware(req,res,next){
-    const date = (new date())
+    const date = (new Date())
     .toISOString()
     .replace(/T/,'');
     
