@@ -1,17 +1,19 @@
 import express from 'express'
 import {controllers} from './controllers/controllers.js';
-import { errorHandlerMiddleware} from './middlewar/error_Handler_Middleware.js';
-import { logMiddleware } from './middlewares/log_middleware.js';
+import { error_Handler_Middleware } from './middleware/error_Handler_Middleware.js';
+import { logMiddleware } from './middleware/log_middleware.js';
 
 const app = express();
 
-// Middleware para decodificar JSON del body
-app.use(express.json());
-app.use(logMiddleware);
+const router= express.Router();
+app.use('/api',router);
+
+router.use(express.json());
+router.use(logMiddleware);
 
 controllers(app);
 
-app.use(errorHandlerMiddleware);
+router.use(errorHandlerMiddleware);
 
 const PORT = 3000;
 app.listen(
